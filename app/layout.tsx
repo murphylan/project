@@ -30,13 +30,18 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
+  auth,
   children,
-}: Readonly<{
+}: {
+  auth: React.ReactNode;
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body className={`${ibmPlexSans.variable} antialiased`}>{children}</body>
+      <body className={`${ibmPlexSans.variable} antialiased`}>
+        <div>{auth}</div>
+        {children}
+      </body>
     </html>
   );
 }
